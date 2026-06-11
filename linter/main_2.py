@@ -21,6 +21,7 @@ from module_30_ci_linters.hw_fastapi.schemas_2 import (
 app = FastAPI()
 
 
+
 @app.on_event("startup")
 async def startup():
     async with engine.begin() as conn:
