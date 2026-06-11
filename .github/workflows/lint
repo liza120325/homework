@@ -1,0 +1,25 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+image: python:3.12
+
+
+before-script:
+    - pip install -r requirements.txt
+
+mypy:
+  script:
+    - mypy linter/
+
+black:
+  script:
+    - black --diff --check src/
+
+isort:
+  script:
+    - isort --check-only src/
+
+flask8:
+  script:
+    - flake8 src/
