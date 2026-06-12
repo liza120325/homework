@@ -13,7 +13,6 @@ from linter.database import Base, engine, session
 from linter.models_2 import RecipeInfo
 from linter.schemas_2 import RecipeIn, RecipeOut, RecipesOut, SingleRecipeOut
 
-
 app = FastAPI()
 
 
