@@ -39,7 +39,7 @@ jobs:
         run: black --diff --check linter/
       
       - name: Проверка isort
-        run: isort --check-only --diff linter/
+        run: isort --profile black --check-only --diff linter/
 
       - name: Проверка flake8
         run: flake8 linter/
