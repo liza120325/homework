@@ -11,15 +11,10 @@ from sqlalchemy.future import select
 
 from linter.database import Base, engine, session
 from linter.models_2 import RecipeInfo
-from linter.schemas_2 import (
-    RecipeIn,
-    RecipeOut,
-    RecipesOut,
-    SingleRecipeOut,
-)
+from linter.schemas_2 import RecipeIn, RecipeOut, RecipesOut, SingleRecipeOut
+
 
 app = FastAPI()
-
 
 
 @app.on_event("startup")
@@ -74,9 +69,7 @@ async def shutdown():
 async def recipies() -> Sequence[RecipeInfo]:
     # отправляем запрос в БД
     # Возвращает список рецептов по количеству просмотров
-    res = await session.execute(
-        select(RecipeInfo).order_by(desc(RecipeInfo.views))
-    )
+    res = await session.execute(select(RecipeInfo).order_by(desc(RecipeInfo.views)))
     return res.scalars().all()
 
 
@@ -96,16 +89,12 @@ async def recipies_by_id(recipe_id) -> Sequence[RecipeInfo]:
 
     # Обновляем инфо в БД
     await session.execute(
-        update(RecipeInfo).where(
-            RecipeInfo.id == recipe_id
-        ).values(views=views_res)
+        update(RecipeInfo).where(RecipeInfo.id == recipe_id).values(views=views_res)
     )
     await session.commit()
 
     # Оправляем обновленные данные пользователю
-    res = await session.execute(
-        select(RecipeInfo).where(RecipeInfo.id == recipe_id)
-    )
+    res = await session.execute(select(RecipeInfo).where(RecipeInfo.id == recipe_id))
     return res.scalars().all()
 
 
