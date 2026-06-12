@@ -5,6 +5,4 @@ flake8-pie==0.16.0
 isort==8.0.1
 mypy==2.1.0
 pytest==9.0.3
-sqlaclhemy==2.0.48
-pydantic==1.10.26
-fastapi==0.70.0
+
