@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 
-from module_30_ci_linters.hw_fastapi.database import Base
+from database import Base
 
 # модели таблиц sqlalchemy
 
