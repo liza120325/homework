@@ -23,6 +23,15 @@ jobs:
       - name: Установка зависимостей
         run: pip install -r requirements.txt
 
+      - name: Установка sqlalchemy
+        run: pip install sqlalchemy
+
+      - name: Установка fastapi
+        run: pip install fastapi
+
+      - name: Установка pydantic
+        run: pip install pydantic
+
       - name: Проверка mypy
         run: mypy linter/
 
