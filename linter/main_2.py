@@ -9,9 +9,9 @@ from fastapi import FastAPI
 from sqlalchemy import desc, update
 from sqlalchemy.future import select
 
-from module_30_ci_linters.hw_fastapi.database import Base, engine, session
-from module_30_ci_linters.hw_fastapi.models_2 import RecipeInfo
-from module_30_ci_linters.hw_fastapi.schemas_2 import (
+from database import Base, engine, session
+from models_2 import RecipeInfo
+from schemas_2 import (
     RecipeIn,
     RecipeOut,
     RecipesOut,
